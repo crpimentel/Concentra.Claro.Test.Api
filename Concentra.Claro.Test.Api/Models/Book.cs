@@ -1,6 +1,7 @@
 ﻿namespace Concentra.Claro.Test.Api.Models
 {
 
+
     // Models/Book.cs
     public class Book
     {
