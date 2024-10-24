@@ -1,0 +1,6 @@
+@Concentra.Claro.Test.Api_HostAddress = http://localhost:5086
+
+GET {{Concentra.Claro.Test.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

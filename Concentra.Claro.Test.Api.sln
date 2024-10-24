@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concentra.Claro.Test.Api", "Concentra.Claro.Test.Api\Concentra.Claro.Test.Api.csproj", "{E41CA2DB-4F72-4C30-9C27-82220F171398}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E41CA2DB-4F72-4C30-9C27-82220F171398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E41CA2DB-4F72-4C30-9C27-82220F171398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E41CA2DB-4F72-4C30-9C27-82220F171398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E41CA2DB-4F72-4C30-9C27-82220F171398}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F844C95-9C68-430A-B800-0289DE0907E2}
+	EndGlobalSection
+EndGlobal
