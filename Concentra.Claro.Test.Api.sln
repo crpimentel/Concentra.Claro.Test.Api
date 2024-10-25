@@ -5,7 +5,15 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcentraClaroTestApi", "Concentra.Claro.Test.Api\ConcentraClaroTestApi.csproj", "{E41CA2DB-4F72-4C30-9C27-82220F171398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestUtility", "UnitTestUtility\UnitTestUtility.csproj", "{C0D2D3A5-6970-46A0-AE32-B6A1AB609CEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestUtility", "UnitTestUtility\UnitTestUtility.csproj", "{C0D2D3A5-6970-46A0-AE32-B6A1AB609CEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client-app", "client-app", "{B10688B0-F444-44CB-B65F-29EC72975126}"
+	ProjectSection(SolutionItems) = preProject
+		client-app\.gitignore = client-app\.gitignore
+		client-app\package-lock.json = client-app\package-lock.json
+		client-app\package.json = client-app\package.json
+		client-app\README.md = client-app\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
