@@ -1,9 +1,6 @@
-﻿namespace Concentra.Claro.Test.Api.Models
+﻿namespace ConcentraClaroTestApi.DTOs
 {
-
-
-    // Models/Book.cs
-    public class Book
+    public class BookDto
     {
         public int id { get; set; }
         public string title { get; set; }
