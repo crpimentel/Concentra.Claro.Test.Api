@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from './services/bookService';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import loadingGif from './assets/loading.gif';
 import Modal from 'react-modal';
 
@@ -15,13 +15,24 @@ const BookList = () => {
   const [tooltipDelete, setTooltipDelete] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [bookToDelete, setBookToDelete] = useState(null); // ID del libro a eliminar
+  const [loadingDetails, setLoadingDetails] = useState(false); // Estado para cargar detalles
+  const navigate = useNavigate(); // Hook para redirección
 
   useEffect(() => {
-    setIsLoading(true);
-    api.get('')
-      .then((response) => setBooks(response.data))
-      .catch((error) => console.error(error))
-      .finally(() => setIsLoading(false));
+    const fetchBooks = async () => {
+      setIsLoading(true);
+      try {
+        const response = await api.get('');
+        setBooks(response.data);
+      } catch (error) {
+        console.error(error);
+        setErrorMessage('Error al cargar los libros.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchBooks();
   }, []);
 
   const handleDelete = async () => {
@@ -42,8 +53,17 @@ const BookList = () => {
     }
   };
 
+  const handleBookClick = (bookId) => {
+    setLoadingDetails(true); // Inicia la carga de detalles
+    // Simular una llamada a la API para obtener detalles del libro
+    setTimeout(() => {
+      navigate(`/books/${bookId}`); // Redirige al detalle del libro
+      setLoadingDetails(false); // Finaliza la carga de detalles
+    }, 1000); // Simula un retraso de 1 segundo
+  };
+
   return (
-    <div style={{ padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
+    <div style={{ padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '8px', opacity: loadingDetails ? 0.5 : 1 }}>
       <h2 style={{
           color: '#fff',
           backgroundColor: '#007bff',
@@ -56,7 +76,7 @@ const BookList = () => {
           textTransform: 'uppercase',
           letterSpacing: '1px'
         }}>
-        Books List
+        Listado de Libros
       </h2>
       
       <div style={{ position: 'relative', marginBottom: '20px' }}>
@@ -123,6 +143,7 @@ const BookList = () => {
                 e.currentTarget.style.backgroundColor = '#ffffff'; // Restaura el color original
                 setTooltipDetails(null);
               }}
+              onClick={() => handleBookClick(book.id)} // Redirigir al detalle del libro
             >
               <Link to={`/books/${book.id}`} style={{ textDecoration: 'none', color: '#333' }}>{book.title}</Link>
               {tooltipDetails === book.id && (
