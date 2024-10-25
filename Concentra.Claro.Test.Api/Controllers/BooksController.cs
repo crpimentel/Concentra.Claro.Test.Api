@@ -59,6 +59,11 @@ namespace ConcentraClaroTestApi.Controllers
                 // Return the book with 200 OK
                 return Ok(book);
             }
+            catch (HttpRequestException httpRequestException)
+            {
+                // If a network or connection error occurs, return 503 Service Unavailable
+                return StatusCode(503, new { message = $"Service error: {httpRequestException.Message}" });
+            }
             catch (Exception ex)
             {
                 // If an error occurs, return 400 Bad Request or other status codes as needed
