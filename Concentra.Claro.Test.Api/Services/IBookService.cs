@@ -4,6 +4,7 @@ namespace ConcentraClaroTestApi.Services
 {
     public interface IBookService
     {
-        Task<List<BookDto>> CallExternalApiAsync();
+        Task<List<BookDto>> GetList();
+        Task<BookDto> GetId();
     }
 }
