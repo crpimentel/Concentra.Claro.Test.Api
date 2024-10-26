@@ -7,14 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Leer la configuración de CORS desde appsettings.json
 var corsSettings = builder.Configuration.GetSection("Cors");
-var allowedOrigins = corsSettings.GetSection("AllowedOrigins").Get<string[]>();
+var allowedOrigins = builder.Configuration["Cors:AllowedOrigins"];
 // Agregar CORS con orígenes permitidos desde la configuración
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins",
-        builder => builder.WithOrigins(allowedOrigins)
-                          .AllowAnyHeader()
-                          .AllowAnyMethod());
+       builder => builder.SetIsOriginAllowed(origin => new Uri(origin).Host == allowedOrigins)
+                         .AllowAnyHeader()
+                         .AllowAnyMethod());
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
